@@ -1,6 +1,7 @@
-module.exports.object = object;
+module.exports.dic_object = dic_object;
+module.exports.func_object = func_object;
 
-var Person = {
+var dic_Person = {
     name: String,
     age: Number,
     tall: Number,
@@ -15,11 +16,30 @@ var Person = {
         console.log("키 : %d", this.tall);
     }
 }
-function name(params) {
+function func_Person() {
+    this.name = String;
+    this.age = Number;
+    this.tall = Number;
     
+    this.SetValue = function(name, age, tall){
+        console.log("이름 : %s", this.name);
+        console.log("나이 : %d", this.age);
+        console.log("키 : %d", this.tall);
+    }
+
+    this.profile = function(){
+        console.log("이름 : %s", this.name);
+        console.log("나이 : %d", this.age);
+        console.log("키 : %d", this.tall);
+    }
 }
 
-function object(){
-    Person("진현우", 24, 177);
-    Person.profile();
+function dic_object(){
+    dic_Person.SetValue("진현우", 24, 177);
+    dic_Person.profile();
+}
+function func_object(){
+    var a = new func_Person();
+    a.SetValue("진현우", 24, 177);
+    a.profile();
 }
